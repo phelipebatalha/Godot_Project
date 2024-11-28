@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Novo Projeto de Jogo"
-run/main_scene="res://Scenes/Jogo/jogo.tscn"
+run/main_scene="res://scenes/jogo/jogo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+inimigos=""
+player=""
+projetil=""
 
 [input]
 
