@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://l5nafe8y5fux"]
+
+[ext_resource type="Texture2D" uid="uid://dusu7ddb11dfl" path="res://assets/Art/piso.png" id="1_o3fsd"]
+[ext_resource type="PackedScene" uid="uid://bdb8siopgnqmp" path="res://Scenes/Player/player.tscn" id="2_yoqiy"]
+
+[node name="Jogo" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_yoqiy")]
+z_index = 1
+position = Vector2(610, 345)
+
+[node name="Piso" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_o3fsd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
