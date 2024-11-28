@@ -29,9 +29,8 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		player_in_area = false
 
 func _on_hitbox_area_entered(area):
-	var damage
 	if area.is_in_group("projetil"):
-		damage = 50
+		var damage = area.arrow_deal_damage()
 		take_damage(damage)
 		area.queue_free()
 		

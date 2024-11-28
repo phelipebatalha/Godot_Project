@@ -8,7 +8,6 @@ var bow_equiped = false
 var bow_cooldown = true
 var arrow = preload("res://scenes/arrow.tscn")
 
-
 func _physics_process(delta: float) -> void:
 	velocity = direcao.normalized() * speed 
 	move_and_slide() # pega a velocity e movimenta baseado nela
@@ -21,8 +20,16 @@ func _physics_process(delta: float) -> void:
 func gerenciar_animacao() -> void:
 	if player_state == "Idle":
 		$AnimatedSprite2D.play("Idle")
-	if player_state == "Walking":
-		if direcao.y == -1:
+	elif player_state == "Walking":
+		if direcao.x == 1 and direcao.y == -1:
+			$AnimatedSprite2D.play("Ne-walk")
+		elif direcao.x == 1 and direcao.y == 1:
+			$AnimatedSprite2D.play("Se-walk")
+		elif direcao.x == -1 and direcao.y == -1:
+			$AnimatedSprite2D.play("No-walk")
+		elif direcao.x == -1 and direcao.y == 1:
+			$AnimatedSprite2D.play("So-walk")
+		elif direcao.y == -1:
 			$AnimatedSprite2D.play("N-walk")
 		elif direcao.y == 1:
 			$AnimatedSprite2D.play("S-walk")
@@ -30,15 +37,6 @@ func gerenciar_animacao() -> void:
 			$AnimatedSprite2D.play("L-walk")
 		elif direcao.x == 1:
 			$AnimatedSprite2D.play("R-walk")
-			
-		elif direcao.x > .5 and direcao.y < -.5:
-			$AnimatedSprite2D.play("Ne-walk")
-		elif direcao.x > .5 and direcao.y > .5:
-			$AnimatedSprite2D.play("Se-walk")
-		elif direcao.x < -.5 and direcao.y < -.5:
-			$AnimatedSprite2D.play("No-walk")
-		elif direcao.x < -.5 and direcao.y > .5:
-			$AnimatedSprite2D.play("So-walk")
 		
 func _input(event: InputEvent) -> void:
 	input_movimentacao(event)
